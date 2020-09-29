@@ -265,12 +265,32 @@ Your final act is to deface the website using command injection. Follow the walk
    
 **Now it's your turn**   
 
-- Now that we know where the webpage is, your task will be to deface the website. Keep in mind the following:
-  * Use **WebScarab** to perform command injection.
-  * When performing command injection, you will need to select a field that WebScarab can return commands to. These fields are typically located in a drop down. 
-  * You will also need to locate and edit the the webpage's source code: `webgoat_challenge_guest.jsp`
-  * Your final command will:
-    * Change to the location of the `webgoat_challenge_guest.jsp` file.
-    * **and** echo `You've been hacked.` to the `webgoat_challenge_guest.jsp` file.
+ Now that we know where the webpage is, let's inject some text and deface it.
+
+   - Click **TCP**, then click the **View Network** button to send the request to WebScarab.
+   
+   - Modify the Value field with the following command injection:
+   
+      - `tcp && cd webapps/WebGoat && echo you_have_been_hacked > webgoat_challenge_guest.jsp`
+      
+        - **Note**: Window users, type the following: `tcp && echo 'test' >; C:\Users\user\Downloads\.extract\webapps\WebGoat\webgoat_challenge_guest.jsp`
+      
+   - Click **Accept Changes** in WebScarab.
+      
+        ![deface command](Images/challenge_3/webscarab_deface_injection_command.png)
+      
+   - In the next window, click **Accept Changes** two more times.
+      
+        ![accept](Images/challenge_3/webscarab_2nd_window.png)
+
+- You should get a message that says "Congratulations - You have defaced the site!"
+
+   ![Congrats](Images/challenge_3/Congrats.png)
+
+- Scroll to the bottom to see the defaced webpage.
+
+   ![Solved](Images/challenge_3/defaced_webpage.png)
+
+___
 
 ---
